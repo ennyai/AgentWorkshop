@@ -39,5 +39,5 @@ COPY --from=builder /app/package.json ./
 # Expose port
 EXPOSE ${PORT:-4173}
 
-# Start the application
+# Start the application (serve binds to 0.0.0.0 by default)
 CMD ["npm", "run", "start"] 
