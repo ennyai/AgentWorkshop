@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
@@ -18,23 +18,16 @@ export default defineConfig(({ mode }) => ({
     sourcemap: false,
     minify: "esbuild",
     rollupOptions: {
-      external: [],
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
           ui: ['@radix-ui/react-select', '@radix-ui/react-checkbox', '@radix-ui/react-label']
         }
-      },
-      onwarn(warning, warn) {
-        // Suppress warnings about optional dependencies
-        if (warning.code === 'MODULE_NOT_FOUND') return;
-        warn(warning);
       }
     }
   },
   optimizeDeps: {
-    include: ['react', 'react-dom'],
-    exclude: ['@rollup/rollup-linux-x64-gnu']
+    include: ['react', 'react-dom']
   },
   plugins: [
     react(),
