@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite preview --port ${PORT:-4173} --host 0.0.0.0"
+    "start": "vite preview --port ${PORT:-4173} --host 0.0.0.0",
+    "postinstall": "npm rebuild --platform=linux --arch=x64 rollup || true"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
