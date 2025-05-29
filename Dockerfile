@@ -7,9 +7,9 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies using npm install (better handling of optional deps)
+# Install dependencies using legacy peer deps for compatibility
 RUN npm cache clean --force && \
-    npm install --no-audit --no-fund
+    npm install --legacy-peer-deps --no-audit --no-fund
 
 # Copy source code
 COPY . .
@@ -26,8 +26,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install only production dependencies
-RUN npm ci --omit=dev --no-audit --no-fund && \
+# Install only production dependencies with legacy peer deps
+RUN npm ci --omit=dev --legacy-peer-deps --no-audit --no-fund && \
     npm cache clean --force
 
 # Copy built application from builder stage
