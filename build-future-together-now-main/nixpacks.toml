@@ -1,11 +1,12 @@
 [phases.setup]
-nixPkgs = ['nodejs_18']
+nixpkgsArchive = '0d1ef1a839ce0f3282bf24bea2788b9ad659be83'
+nixPkgs = ['...', 'nodejs']
 
 [phases.install]
-cmd = 'npm ci --omit=dev'
+cmd = 'bun install --no-save'
 
 [phases.build]
-cmd = 'npm run build'
+cmd = 'bun run build'
 
 [start]
-cmd = 'npm start' 
+cmd = 'bun run start' 
