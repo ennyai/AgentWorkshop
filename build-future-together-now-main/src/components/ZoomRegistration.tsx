@@ -11,9 +11,8 @@ interface RegistrationData {
   lastName: string;
   email: string;
   company: string;
-  jobTitle: string;
-  experience: string;
-  sessionType: string;
+  role: string;
+  contentType: string;
   marketingConsent: boolean;
 }
 
@@ -23,9 +22,8 @@ const ZoomRegistration = () => {
     lastName: "",
     email: "",
     company: "",
-    jobTitle: "",
-    experience: "",
-    sessionType: "",
+    role: "",
+    contentType: "",
     marketingConsent: false,
   });
 
@@ -44,15 +42,14 @@ const ZoomRegistration = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate API call to register for Zoom
+    // Simulate API call to register for Zoom webinar
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     setIsLoading(false);
     setIsSubmitted(true);
   };
 
-  const isFormValid = formData.firstName && formData.lastName && formData.email && 
-                     formData.company && formData.sessionType;
+  const isFormValid = formData.firstName && formData.lastName && formData.email && formData.role;
 
   if (isSubmitted) {
     return (
@@ -63,13 +60,21 @@ const ZoomRegistration = () => {
           </div>
           <h3 className="text-2xl font-semibold mb-3 text-gray-900">Registration Confirmed!</h3>
           <p className="text-gray-600 mb-4">
-            You'll receive a Zoom link and workshop materials via email within 24 hours.
+            You'll receive a Zoom link and webinar materials via email within 30 minutes.
           </p>
           <div className="bg-workshop-lightGray p-4 rounded-lg mb-4">
             <p className="text-sm text-gray-700">
-              <strong>Workshop:</strong> AI Agents for Enterprise<br />
-              <strong>Date:</strong> June 15-16, 2025<br />
-              <strong>Format:</strong> {formData.sessionType}
+              <strong>Webinar:</strong> Content Automation Strategy Session<br />
+              <strong>Date:</strong> [Date TBD]<br />
+              <strong>Duration:</strong> 1 Hour<br />
+              <strong>Format:</strong> Live Online (Zoom)
+            </p>
+          </div>
+          <div className="mb-4 p-3 bg-workshop-purple/5 border border-workshop-purple/20 rounded-lg">
+            <p className="text-sm text-workshop-purple font-medium">
+              📅 Calendar invite sent to your email<br />
+              🎥 Zoom link included in confirmation email<br />
+              📝 Pre-webinar materials will be shared 1 hour before
             </p>
           </div>
           <Button 
@@ -81,16 +86,15 @@ const ZoomRegistration = () => {
                 lastName: "",
                 email: "",
                 company: "",
-                jobTitle: "",
-                experience: "",
-                sessionType: "",
+                role: "",
+                contentType: "",
                 marketingConsent: false,
               });
             }}
             variant="outline" 
             className="text-workshop-purple border-workshop-purple hover:bg-workshop-purple/5"
           >
-            Register Another Attendee
+            Register Another Person
           </Button>
         </div>
       </div>
@@ -100,40 +104,41 @@ const ZoomRegistration = () => {
   if (!showForm) {
     return (
       <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative">
-        <div className="absolute -top-3 -left-3 bg-workshop-teal text-white text-sm font-medium py-1 px-3 rounded-full">
-          Virtual Access
+        <div className="absolute -top-3 -left-3 bg-green-600 text-white text-sm font-medium py-1 px-3 rounded-full">
+          100% Free
         </div>
         
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-workshop-blue/10 rounded-lg">
             <Video className="w-6 h-6 text-workshop-blue" />
           </div>
-          <h3 className="text-2xl font-semibold">Join Virtually via Zoom</h3>
+          <h3 className="text-2xl font-semibold">Free Content Automation Webinar</h3>
         </div>
 
         <div className="space-y-4 mb-6">
           <div className="flex items-center gap-3 text-gray-700">
             <Calendar className="w-5 h-5 text-workshop-purple" />
-            <span>June 15-16, 2025</span>
+            <span>[Date TBD]</span>
           </div>
           <div className="flex items-center gap-3 text-gray-700">
             <Clock className="w-5 h-5 text-workshop-purple" />
-            <span>9:00 AM - 5:00 PM PST (Both Days)</span>
+            <span>1 Hour Live Session</span>
           </div>
           <div className="flex items-center gap-3 text-gray-700">
             <Users className="w-5 h-5 text-workshop-purple" />
-            <span>Limited to 25 Virtual Participants</span>
+            <span>Business Owners, Marketers, Content Creators</span>
           </div>
         </div>
 
         <div className="bg-workshop-lightGray p-4 rounded-lg mb-6">
-          <h4 className="font-semibold mb-2 text-gray-900">Virtual Session Includes:</h4>
+          <h4 className="font-semibold mb-2 text-gray-900">What You'll Get:</h4>
           <ul className="text-sm text-gray-700 space-y-1">
-            <li>• Interactive breakout rooms for hands-on development</li>
-            <li>• Real-time Q&A with expert instructors</li>
-            <li>• Digital workshop materials and code templates</li>
-            <li>• 30-day access to recorded sessions</li>
-            <li>• Private Slack community for ongoing support</li>
+            <li>• Live demo of content automation in action</li>
+            <li>• Step-by-step implementation roadmap</li>
+            <li>• Exact tools and platforms you need</li>
+            <li>• Q&A session with expert guidance</li>
+            <li>• Free downloadable resource guide</li>
+            <li>• Optional workshop preview (3-hour paid session)</li>
           </ul>
         </div>
 
@@ -142,7 +147,7 @@ const ZoomRegistration = () => {
           className="w-full btn-primary text-lg flex items-center justify-center gap-2 group"
         >
           <Video className="w-5 h-5" />
-          Register for Virtual Session
+          Save My Free Spot
         </Button>
       </div>
     );
@@ -155,7 +160,7 @@ const ZoomRegistration = () => {
           <div className="p-2 bg-workshop-blue/10 rounded-lg">
             <Video className="w-6 h-6 text-workshop-blue" />
           </div>
-          <h3 className="text-2xl font-semibold">Virtual Registration</h3>
+          <h3 className="text-2xl font-semibold">Free Webinar Registration</h3>
         </div>
         <Button
           variant="ghost"
@@ -197,7 +202,7 @@ const ZoomRegistration = () => {
 
         <div>
           <Label htmlFor="email" className="text-sm font-medium text-gray-700">
-            Business Email *
+            Email Address *
           </Label>
           <Input
             id="email"
@@ -211,57 +216,54 @@ const ZoomRegistration = () => {
 
         <div>
           <Label htmlFor="company" className="text-sm font-medium text-gray-700">
-            Company *
+            Company (Optional)
           </Label>
           <Input
             id="company"
             value={formData.company}
             onChange={(e) => handleInputChange("company", e.target.value)}
             className="mt-1"
-            required
+            placeholder="Your company or 'Individual Creator'"
           />
         </div>
 
         <div>
-          <Label htmlFor="jobTitle" className="text-sm font-medium text-gray-700">
-            Job Title
+          <Label htmlFor="role" className="text-sm font-medium text-gray-700">
+            Your Role *
           </Label>
-          <Input
-            id="jobTitle"
-            value={formData.jobTitle}
-            onChange={(e) => handleInputChange("jobTitle", e.target.value)}
-            className="mt-1"
-          />
-        </div>
-
-        <div>
-          <Label htmlFor="experience" className="text-sm font-medium text-gray-700">
-            AI/ML Experience Level
-          </Label>
-          <Select value={formData.experience} onValueChange={(value) => handleInputChange("experience", value)}>
+          <Select value={formData.role} onValueChange={(value) => handleInputChange("role", value)}>
             <SelectTrigger className="mt-1">
-              <SelectValue placeholder="Select your experience level" />
+              <SelectValue placeholder="Select your role" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="beginner">Beginner - New to AI/ML</SelectItem>
-              <SelectItem value="intermediate">Intermediate - Some experience</SelectItem>
-              <SelectItem value="advanced">Advanced - Experienced practitioner</SelectItem>
-              <SelectItem value="expert">Expert - Industry specialist</SelectItem>
+              <SelectItem value="business-owner">Business Owner</SelectItem>
+              <SelectItem value="marketer">Marketer</SelectItem>
+              <SelectItem value="content-creator">Content Creator</SelectItem>
+              <SelectItem value="coo">COO</SelectItem>
+              <SelectItem value="marketing-manager">Marketing Manager</SelectItem>
+              <SelectItem value="social-media-manager">Social Media Manager</SelectItem>
+              <SelectItem value="freelancer">Freelancer</SelectItem>
+              <SelectItem value="other">Other</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
         <div>
-          <Label htmlFor="sessionType" className="text-sm font-medium text-gray-700">
-            Session Preference *
+          <Label htmlFor="contentType" className="text-sm font-medium text-gray-700">
+            Primary Content Type (Optional)
           </Label>
-          <Select value={formData.sessionType} onValueChange={(value) => handleInputChange("sessionType", value)}>
+          <Select value={formData.contentType} onValueChange={(value) => handleInputChange("contentType", value)}>
             <SelectTrigger className="mt-1">
-              <SelectValue placeholder="Choose your preferred session type" />
+              <SelectValue placeholder="What type of content do you create most?" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="virtual-only">Virtual Only - Full Zoom Experience</SelectItem>
-              <SelectItem value="hybrid">Hybrid - Virtual with In-Person Networking</SelectItem>
+              <SelectItem value="social-media">Social Media Posts</SelectItem>
+              <SelectItem value="blog-articles">Blog Articles</SelectItem>
+              <SelectItem value="email-marketing">Email Marketing</SelectItem>
+              <SelectItem value="video-content">Video Content</SelectItem>
+              <SelectItem value="product-descriptions">Product Descriptions</SelectItem>
+              <SelectItem value="marketing-copy">Marketing Copy</SelectItem>
+              <SelectItem value="mixed">Mixed/Multiple Types</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -273,7 +275,7 @@ const ZoomRegistration = () => {
             onCheckedChange={(checked) => handleInputChange("marketingConsent", checked as boolean)}
           />
           <Label htmlFor="marketing" className="text-sm text-gray-600 leading-relaxed">
-            I agree to receive workshop updates, resources, and relevant AI insights via email. 
+            I'd like to receive content automation tips, webinar updates, and workshop announcements. 
             You can unsubscribe at any time.
           </Label>
         </div>
@@ -286,18 +288,18 @@ const ZoomRegistration = () => {
           {isLoading ? (
             <>
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              Processing Registration...
+              Securing Your Spot...
             </>
           ) : (
             <>
               <Video className="w-5 h-5" />
-              Secure My Virtual Spot
+              Reserve My Free Spot
             </>
           )}
         </Button>
 
         <p className="text-xs text-gray-500 text-center mt-3">
-          Secure registration • 25 virtual spots remaining • No payment required
+          100% Free • No Credit Card Required • Instant Confirmation
         </p>
       </form>
     </div>

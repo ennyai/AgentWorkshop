@@ -1,4 +1,3 @@
-
 import React from "react";
 
 const BusinessBenefits = () => {
@@ -11,11 +10,11 @@ const BusinessBenefits = () => {
       <div className="container mx-auto relative z-10">
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Benefits for <span className="gradient-text">Established Businesses</span>
+            Benefits for <span className="gradient-text">Content Creators & Teams</span>
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Our workshop is specifically designed to address the unique challenges and opportunities
-            that established businesses face when implementing AI solutions.
+            Whether you're a solo creator, marketing team, or business owner, our content automation 
+            approach is designed for anyone who wants to scale their content without technical complexity.
           </p>
         </div>
 
@@ -23,52 +22,52 @@ const BusinessBenefits = () => {
           <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
             <div className="rounded-full bg-workshop-purple/10 w-14 h-14 flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-workshop-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Accelerate Implementation</h3>
+            <h3 className="text-xl font-semibold mb-3">Save 80% of Your Time</h3>
             <p className="text-gray-600">
-              Skip months of research and development by implementing proven AI agent architectures
-              tailored to your business requirements. Deploy solutions within weeks, not years.
+              Transform hours of content creation into minutes. Automate the heavy lifting while 
+              maintaining your unique voice and brand consistency across all platforms.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
             <div className="rounded-full bg-workshop-blue/10 w-14 h-14 flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-workshop-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Integrate with Existing Systems</h3>
+            <h3 className="text-xl font-semibold mb-3">Dramatically Cut Costs</h3>
             <p className="text-gray-600">
-              Learn how to connect AI agents with your legacy systems, databases, and software
-              without major disruptions or costly infrastructure overhauls.
+              No more expensive freelancers or agencies for routine content. You'll own the system 
+              and reduce your content creation costs by thousands per month.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
             <div className="rounded-full bg-workshop-teal/10 w-14 h-14 flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-workshop-teal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold mb-3">ROI-Focused Development</h3>
+            <h3 className="text-xl font-semibold mb-3">No Technical Skills Required</h3>
             <p className="text-gray-600">
-              Focus on AI implementations that deliver measurable business value. Each project
-              includes ROI assessment frameworks for tracking performance metrics.
+              If you can use Excel or Google Sheets, you can implement these automations. 
+              No coding, no engineering team, no complex technical setup required.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
             <div className="rounded-full bg-workshop-purple/10 w-14 h-14 flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-workshop-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Compliance & Security Built-in</h3>
+            <h3 className="text-xl font-semibold mb-3">Your Data Stays Safe</h3>
             <p className="text-gray-600">
-              Develop AI agents that adhere to industry regulations and enterprise security
-              standards from the ground up, minimizing compliance risks.
+              You control your automations and data. No dependency on external agencies or 
+              platforms that could disappear. Your system belongs to you.
             </p>
           </div>
 
@@ -78,24 +77,59 @@ const BusinessBenefits = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Internal Capability Building</h3>
+            <h3 className="text-xl font-semibold mb-3">Scale Individual or Team</h3>
             <p className="text-gray-600">
-              Equip your team with the skills to maintain and extend your AI agents after the workshop,
-              reducing dependency on external vendors and consultants.
+              Perfect for solo creators who want to compete with big teams, or companies looking 
+              to multiply their content output without hiring more staff.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
             <div className="rounded-full bg-workshop-teal/10 w-14 h-14 flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-workshop-teal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Strategic Innovation</h3>
+            <h3 className="text-xl font-semibold mb-3">Immediate Implementation</h3>
             <p className="text-gray-600">
-              Identify opportunities for AI-driven innovation specific to your industry and
-              competitive landscape, creating sustainable competitive advantages.
+              Start automating your content creation right after the webinar. No months of 
+              planning or development—you can begin seeing results within days.
             </p>
+          </div>
+        </div>
+
+        {/* Objection Handling Section */}
+        <div className="mt-16 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8">
+          <h3 className="text-2xl font-semibold mb-8 text-center">Frequently Asked Questions</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-xl">
+              <h4 className="font-semibold mb-2 text-workshop-purple">Is this just for technical people?</h4>
+              <p className="text-gray-600 text-sm">
+                Not at all! This is specifically designed for non-technical users. If you can manage a 
+                spreadsheet, you can implement these automations.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl">
+              <h4 className="font-semibold mb-2 text-workshop-purple">Do I need coding experience?</h4>
+              <p className="text-gray-600 text-sm">
+                Zero coding required. We use no-code platforms like Make.com and Google Sheets. 
+                Everything is visual and intuitive.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl">
+              <h4 className="font-semibold mb-2 text-workshop-purple">What if I get stuck after the workshop?</h4>
+              <p className="text-gray-600 text-sm">
+                You'll get step-by-step guides and access to our community. Plus, if you join the 
+                paid workshop, you get hands-on implementation support.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl">
+              <h4 className="font-semibold mb-2 text-workshop-purple">Is my data secure with these tools?</h4>
+              <p className="text-gray-600 text-sm">
+                Yes! You control your own automations and data. We'll show you how to set everything 
+                up securely with industry-standard platforms.
+              </p>
+            </div>
           </div>
         </div>
       </div>

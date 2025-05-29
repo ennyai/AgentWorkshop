@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -22,6 +21,14 @@ const Navbar = () => {
     };
   }, []);
 
+  const scrollToRegistration = () => {
+    const registrationSection = document.querySelector('section:last-of-type');
+    if (registrationSection) {
+      registrationSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -30,24 +37,26 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <span className="font-bold text-2xl gradient-text">AI Workshop</span>
+          <span className="font-bold text-2xl gradient-text">Content Automation</span>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <a href="#overview" className="text-workshop-darkGray hover:text-workshop-purple transition-colors">
-            Overview
+            Webinar
           </a>
           <a href="#benefits" className="text-workshop-darkGray hover:text-workshop-purple transition-colors">
             Benefits
           </a>
           <a href="#timeline" className="text-workshop-darkGray hover:text-workshop-purple transition-colors">
-            Timeline
+            Agenda
           </a>
           <a href="#testimonials" className="text-workshop-darkGray hover:text-workshop-purple transition-colors">
-            Testimonials
+            Success Stories
           </a>
-          <Button className="btn-primary">Register Now</Button>
+          <Button className="btn-primary" onClick={scrollToRegistration}>
+            Register Free
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -70,7 +79,7 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(false)}
             className="text-workshop-darkGray hover:text-workshop-purple transition-colors py-2"
           >
-            Overview
+            Webinar
           </a>
           <a
             href="#benefits"
@@ -84,16 +93,18 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(false)}
             className="text-workshop-darkGray hover:text-workshop-purple transition-colors py-2"
           >
-            Timeline
+            Agenda
           </a>
           <a
             href="#testimonials"
             onClick={() => setIsMenuOpen(false)}
             className="text-workshop-darkGray hover:text-workshop-purple transition-colors py-2"
           >
-            Testimonials
+            Success Stories
           </a>
-          <Button className="btn-primary w-full">Register Now</Button>
+          <Button className="btn-primary w-full" onClick={scrollToRegistration}>
+            Register Free
+          </Button>
         </div>
       )}
     </nav>
