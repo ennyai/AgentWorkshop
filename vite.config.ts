@@ -17,14 +17,6 @@ export default defineConfig(({ mode }) => ({
     outDir: "dist",
     sourcemap: false,
     minify: "esbuild",
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          ui: ['@radix-ui/react-select', '@radix-ui/react-checkbox', '@radix-ui/react-label']
-        }
-      }
-    }
   },
   optimizeDeps: {
     include: ['react', 'react-dom']
