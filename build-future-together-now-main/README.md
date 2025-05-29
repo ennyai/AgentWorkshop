@@ -1,73 +1,145 @@
-# Welcome to your Lovable project
+# Content Automation Webinar Landing Page
 
-## Project info
+A modern, responsive landing page for the "Content Automation Webinar" - teaching business owners, marketers, and content creators how to automate their content creation process without coding.
 
-**URL**: https://lovable.dev/projects/71be03f0-eb9f-4063-b7af-4058b9721f2b
+## 🚀 Features
 
-## How can I edit this code?
+- **Free 1-Hour Webinar Registration** - Streamlined registration flow
+- **Content Automation Focus** - No-code approach to content creation
+- **Mobile-Responsive Design** - Built with Tailwind CSS
+- **Modern React/TypeScript Stack** - Fast and reliable
+- **Optimized for Conversion** - Lead magnet to workshop funnel
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Build Tool**: Vite
+- **Icons**: Lucide React
+- **Deployment**: Railway
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/71be03f0-eb9f-4063-b7af-4058b9721f2b) and start prompting.
+## 📋 Webinar Content
 
-Changes made via Lovable will be committed automatically to this repo.
+- Live content automation demo
+- No-code tools walkthrough (Make.com, n8n, Google Sheets)
+- Step-by-step implementation strategy
+- 80% time savings methodology
+- Q&A and optional workshop preview
 
-**Use your preferred IDE**
+## 🚢 Deployment to Railway
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
+- Railway account ([railway.app](https://railway.app))
+- GitHub repository
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Quick Deploy
 
-Follow these steps:
+1. **Connect Repository**:
+   ```bash
+   # Push your code to GitHub
+   git add .
+   git commit -m "Ready for Railway deployment"
+   git push origin main
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Deploy on Railway**:
+   - Visit [railway.app](https://railway.app)
+   - Click "Deploy from GitHub repo"
+   - Select this repository
+   - Railway will automatically detect the Vite configuration
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Environment Variables** (if needed):
+   - Set `PORT` (Railway provides this automatically)
+   - Add any custom environment variables in Railway dashboard
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Manual Deployment
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+# Install Railway CLI
+npm install -g @railway/cli
+
+# Login to Railway
+railway login
+
+# Initialize project
+railway init
+
+# Deploy
+railway up
 ```
 
-**Edit a file directly in GitHub**
+## 🏗️ Local Development
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Install dependencies
+npm install
 
-**Use GitHub Codespaces**
+# Start development server
+npm run dev
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Build for production
+npm run build
 
-## What technologies are used for this project?
+# Preview production build
+npm run preview
+```
 
-This project is built with:
+## 📁 Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/          # React components
+│   ├── ui/             # shadcn/ui components
+│   ├── HeroSection.tsx # Main hero with registration
+│   ├── WorkshopOverview.tsx
+│   ├── BusinessBenefits.tsx
+│   ├── Timeline.tsx
+│   ├── Testimonials.tsx
+│   ├── BuildSection.tsx
+│   ├── Navbar.tsx
+│   ├── ZoomRegistration.tsx
+│   └── RegistrationForm.tsx
+├── lib/                # Utility functions
+├── App.tsx            # Main app component
+└── main.tsx          # App entry point
+```
 
-## How can I deploy this project?
+## 🎯 Target Audience
 
-Simply open [Lovable](https://lovable.dev/projects/71be03f0-eb9f-4063-b7af-4058b9721f2b) and click on Share -> Publish.
+- Business owners looking to scale content
+- Marketing teams wanting efficiency
+- Content creators seeking automation
+- COOs and marketing managers
+- Freelancers and consultants
 
-## Can I connect a custom domain to my Lovable project?
+## 📊 Key Metrics to Track
 
-Yes, you can!
+- Webinar registration conversion rate
+- Email capture rate
+- Time spent on page
+- Workshop upgrade conversion
+- Mobile vs desktop usage
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🔧 Customization
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Branding
+- Update colors in `tailwind.config.ts`
+- Replace logos and images in `public/`
+- Modify content in component files
+
+### Integrations
+- Zoom webinar registration API
+- Email marketing platform (optional)
+- Analytics tracking (Google Analytics, etc.)
+
+## 🌐 Live Demo
+
+Once deployed to Railway, your webinar landing page will be available at your Railway-provided URL.
+
+## 📝 License
+
+Private project for content automation webinar marketing.
+
+---
+
+Built with ❤️ for content creators who want to scale without complexity.
