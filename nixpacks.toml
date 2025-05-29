@@ -2,14 +2,5 @@
 nixpkgsArchive = '0d1ef1a839ce0f3282bf24bea2788b9ad659be83'
 nixPkgs = ['...', 'nodejs']
 
-[phases.prebuild]
-cmd = 'rm -rf node_modules package-lock.json && npm cache clean --force'
-
-[phases.install]
-cmd = 'npm ci --omit=dev=false --include=optional'
-
-[phases.build]
-cmd = 'npm run build'
-
 [start]
 cmd = 'npm run start' 

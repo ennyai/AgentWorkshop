@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "vite preview --port ${PORT:-4173} --host 0.0.0.0",
-    "postinstall": "npm rebuild --platform=linux --arch=x64 rollup || true"
+    "postinstall": "node -e \"try { require('@rollup/rollup-linux-x64-gnu') } catch (e) { console.log('Installing platform-specific Rollup binary...'); require('child_process').execSync('npm install @rollup/rollup-linux-x64-gnu --no-save --force', {stdio: 'inherit'}) }\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
