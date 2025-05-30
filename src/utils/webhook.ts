@@ -24,6 +24,17 @@ export const sendToWebhook = async (payload: WebhookPayload): Promise<boolean> =
     });
 
     if (!response.ok) {
+      // Handle specific error cases
+      if (response.status === 404) {
+        const errorText = await response.text();
+        if (errorText.includes("webhook") && errorText.includes("not registered")) {
+          console.error("Webhook Error: n8n webhook is in test mode. Please activate your workflow or click 'Execute workflow' in n8n.");
+        } else {
+          console.error("Webhook Error: Endpoint not found (404). Please check your webhook URL.");
+        }
+      } else {
+        console.error(`Webhook Error: HTTP ${response.status} - ${response.statusText}`);
+      }
       throw new Error(`Webhook request failed with status ${response.status}`);
     }
 

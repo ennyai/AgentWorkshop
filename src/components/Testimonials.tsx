@@ -1,6 +1,10 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink, Star } from "lucide-react";
+import wherewolfLogo from "@/assets/wherewolf.png";
+import airsimplicityLogo from "@/assets/airsimplicity.png";
+import truckeeHRLogo from "@/assets/truckee HR.webp";
+import kidderMatthewsLogo from "@/assets/kidder-matthews-logo.webp";
 
 const Testimonials = () => {
   const testimonials = [
@@ -9,7 +13,7 @@ const Testimonials = () => {
       position: "Revenue Operations Manager",
       company: "Wherewolf",
       location: "Denver, Colorado",
-      image: "/wherewolf.png",
+      image: wherewolfLogo,
       quote: "Their consistent communication, clear timelines, and willingness to adjust to our needs ensured the project's success.",
       project: "Custom Software Dev for Digital Waiver Software Company",
       rating: 5.0,
@@ -20,7 +24,7 @@ const Testimonials = () => {
       position: "Marketing",
       company: "AirSimplicity",
       location: "Denver, Colorado",
-      image: "/airsimplicity.png",
+      image: airsimplicityLogo,
       quote: "The final scalable solution was deployed across our entire property portfolio.",
       project: "Home Adjustment Prototype Dev for Short-Term Rental Mgmt Co",
       rating: 5.0,
@@ -31,7 +35,7 @@ const Testimonials = () => {
       position: "Owner",
       company: "TruckeeHR",
       location: "Truckee, California",
-      image: "/truckee HR.webp",
+      image: truckeeHRLogo,
       quote: "The final project was exactly what I was looking for.",
       project: "AI Consulting for HR Consulting Company",
       rating: 5.0,
@@ -42,7 +46,7 @@ const Testimonials = () => {
       position: "VP",
       company: "Kidder Mathews",
       location: "Reno, Nevada",
-      image: "/kidder-matthews-logo.webp",
+      image: kidderMatthewsLogo,
       quote: "They were responsive to all my teams' requests and provided incredible customer service.",
       project: "Email Marketing for Real Estate Company",
       rating: 5.0,
