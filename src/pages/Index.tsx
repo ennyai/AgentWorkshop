@@ -1,13 +1,11 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import RegistrationForm from "@/components/RegistrationForm";
 import WorkshopOverview from "@/components/WorkshopOverview";
 import BuildSection from "@/components/BuildSection";
-import BusinessBenefits from "@/components/BusinessBenefits";
 import Timeline from "@/components/Timeline";
 import Testimonials from "@/components/Testimonials";
-import RegistrationForm from "@/components/RegistrationForm";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,11 +14,10 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <WorkshopOverview />
+      <RegistrationForm />
       <BuildSection />
-      <BusinessBenefits />
       <Timeline />
       <Testimonials />
-      <RegistrationForm />
       <Footer />
     </div>
   );

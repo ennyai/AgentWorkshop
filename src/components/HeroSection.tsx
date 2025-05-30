@@ -26,8 +26,7 @@ const HeroSection = () => {
               Automate Your <span className="gradient-text">Content Creation</span>—No Coding Needed
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-700 max-w-xl">
-              Join our free 1-hour strategy webinar and learn how to go from idea to 80% complete social content. 
-              Perfect for business owners, marketers, and creators—no technical experience required.
+              Join our free 1-hour zoom webinar to learn how to automate your content creation process. Perfect for business owners, marketing professionals, and creators. No technical experience required
             </p>
 
             {/* Key Benefits */}
@@ -46,7 +45,7 @@ const HeroSection = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span>If you use Excel, you can do this</span>
+                <span>Save hours of work every week</span>
               </div>
               <div className="flex items-center gap-2 text-gray-700">
                 <div className="rounded-full bg-workshop-purple/10 p-1">
@@ -54,7 +53,7 @@ const HeroSection = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span>You don't need to hire an engineer</span>
+                <span>Improve your brand presence online</span>
               </div>
             </div>
 

@@ -6,35 +6,61 @@ import { useToast } from "@/components/ui/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Video, CheckCircle } from "lucide-react";
+import { RegistrationData } from "@/types/registration";
+import { createWebhookPayload, sendToWebhook } from "@/utils/webhook";
 
 const RegistrationForm = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<RegistrationData>({
     firstName: "",
     lastName: "",
     email: "",
+    company: "",
     role: "",
+    contentType: "",
     marketingConsent: false
   });
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send to webhook
+      const webhookPayload = createWebhookPayload(formData);
+      const webhookSuccess = await sendToWebhook(webhookPayload);
+      
+      if (!webhookSuccess) {
+        toast({
+          title: "Registration Error",
+          description: "Please try again later.",
+          variant: "destructive"
+        });
+        setLoading(false);
+        return;
+      }
+      
+      // Success flow
       setLoading(false);
       setIsRegistered(true);
       toast({
         title: "Registration successful!",
         description: "Check your email for the Zoom link and calendar invite.",
       });
-    }, 1500);
+    } catch (error) {
+      console.error("Registration error:", error);
+      toast({
+        title: "Registration Error", 
+        description: "Please try again later.",
+        variant: "destructive"
+      });
+      setLoading(false);
+    }
   };
 
-  const handleInputChange = (field: string, value: string | boolean) => {
+  const handleInputChange = (field: keyof RegistrationData, value: string | boolean) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -130,6 +156,16 @@ const RegistrationForm = () => {
                   required 
                 />
               </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="company">Company (Optional)</Label>
+                <Input 
+                  id="company" 
+                  value={formData.company}
+                  onChange={(e) => handleInputChange("company", e.target.value)}
+                  placeholder="Your company or 'Individual Creator'" 
+                />
+              </div>
               
               <div className="space-y-2">
                 <Label htmlFor="role">Your Role *</Label>
@@ -145,8 +181,25 @@ const RegistrationForm = () => {
                     <SelectItem value="marketing-manager">Marketing Manager</SelectItem>
                     <SelectItem value="social-media-manager">Social Media Manager</SelectItem>
                     <SelectItem value="freelancer">Freelancer</SelectItem>
-                    <SelectItem value="consultant">Consultant</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="contentType">Primary Content Type (Optional)</Label>
+                <Select value={formData.contentType} onValueChange={(value) => handleInputChange("contentType", value)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="What type of content do you create most?" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="social-media">Social Media Posts</SelectItem>
+                    <SelectItem value="blog-articles">Blog Articles</SelectItem>
+                    <SelectItem value="email-marketing">Email Marketing</SelectItem>
+                    <SelectItem value="video-content">Video Content</SelectItem>
+                    <SelectItem value="product-descriptions">Product Descriptions</SelectItem>
+                    <SelectItem value="marketing-copy">Marketing Copy</SelectItem>
+                    <SelectItem value="mixed">Mixed/Multiple Types</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -158,7 +211,7 @@ const RegistrationForm = () => {
                   onCheckedChange={(checked) => handleInputChange("marketingConsent", checked as boolean)}
                 />
                 <Label htmlFor="marketing" className="text-sm text-gray-500">
-                  I'd like to receive content automation tips and webinar updates. You can unsubscribe anytime.
+                  I'd like to receive content automation tips, webinar updates, and workshop announcements. You can unsubscribe at any time.
                 </Label>
               </div>
               
@@ -189,29 +242,6 @@ const RegistrationForm = () => {
                 </p>
               </div>
             </form>
-
-            {/* Benefits Reminder */}
-            <div className="mt-8 pt-6 border-t border-gray-100">
-              <h4 className="font-semibold mb-3 text-center text-gray-800">What You'll Learn:</h4>
-              <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-workshop-purple rounded-full"></div>
-                  <span>Live content automation demo</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-workshop-purple rounded-full"></div>
-                  <span>Exact tools and platforms needed</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-workshop-purple rounded-full"></div>
-                  <span>Step-by-step implementation plan</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-workshop-purple rounded-full"></div>
-                  <span>How to cut content costs by 80%</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

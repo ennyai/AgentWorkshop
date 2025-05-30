@@ -37,7 +37,11 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <span className="font-bold text-2xl gradient-text">Content Automation</span>
+          <img 
+            src="/ennyAI logo.png" 
+            alt="Enny AI" 
+            className="h-20 w-auto"
+          />
         </div>
 
         {/* Desktop Navigation */}

@@ -5,16 +5,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Video, Calendar, Clock, Users, CheckCircle, X } from "lucide-react";
-
-interface RegistrationData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  company: string;
-  role: string;
-  contentType: string;
-  marketingConsent: boolean;
-}
+import { RegistrationData } from "@/types/registration";
+import { createWebhookPayload, sendToWebhook } from "@/utils/webhook";
 
 const ZoomRegistration = () => {
   const [formData, setFormData] = useState<RegistrationData>({
@@ -42,11 +34,24 @@ const ZoomRegistration = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate API call to register for Zoom webinar
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsLoading(false);
-    setIsSubmitted(true);
+    try {
+      // Send to webhook
+      const webhookPayload = createWebhookPayload(formData);
+      const webhookSuccess = await sendToWebhook(webhookPayload);
+      
+      if (!webhookSuccess) {
+        console.error("Webhook failed");
+        setIsLoading(false);
+        return;
+      }
+      
+      // Success flow
+      setIsLoading(false);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Registration error:", error);
+      setIsLoading(false);
+    }
   };
 
   const isFormValid = formData.firstName && formData.lastName && formData.email && formData.role;

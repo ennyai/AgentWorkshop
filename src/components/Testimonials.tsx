@@ -1,48 +1,66 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { ExternalLink, Star } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Sarah Mitchell",
-      position: "Marketing Director, GrowthCo",
-      company: "GrowthCo",
-      image: "/placeholder.svg",
-      quote: "After implementing the content automation system from the webinar, we went from spending 20+ hours per week on social media to just 2 hours. Our content output increased 5x while maintaining quality.",
+      name: "Phil Ellison",
+      position: "Revenue Operations Manager",
+      company: "Wherewolf",
+      location: "Denver, Colorado",
+      image: "/wherewolf.png",
+      quote: "Their consistent communication, clear timelines, and willingness to adjust to our needs ensured the project's success.",
+      project: "Custom Software Dev for Digital Waiver Software Company",
+      rating: 5.0,
+      service: "AI Development, Custom Software Development"
     },
     {
-      name: "Michael Rodriguez",
-      position: "Solo Content Creator",
-      company: "Independent",
-      image: "/placeholder.svg",
-      quote: "I was skeptical about automation, but this changed everything. I can now compete with big agencies as a solo creator. My content production went from 5 posts per week to 25+ with the same effort.",
+      name: "Juli Reiserer",
+      position: "Marketing",
+      company: "AirSimplicity",
+      location: "Denver, Colorado",
+      image: "/airsimplicity.png",
+      quote: "The final scalable solution was deployed across our entire property portfolio.",
+      project: "Home Adjustment Prototype Dev for Short-Term Rental Mgmt Co",
+      rating: 5.0,
+      service: "Custom Software Development"
     },
     {
-      name: "Jessica Chen",
-      position: "COO, E-commerce Plus",
-      company: "E-commerce Plus",
-      image: "/placeholder.svg",
-      quote: "The best part? I have zero technical background. If I can set this up using just Google Sheets and Make.com, anyone can. We've saved over $3,000/month on content creation costs.",
+      name: "Kim Pierce",
+      position: "Owner",
+      company: "TruckeeHR",
+      location: "Truckee, California",
+      image: "/truckee HR.webp",
+      quote: "The final project was exactly what I was looking for.",
+      project: "AI Consulting for HR Consulting Company",
+      rating: 5.0,
+      service: "AI Consulting, AI Development"
     },
     {
-      name: "David Thompson",
-      position: "Marketing Manager, Local Business Group",
-      company: "Local Business Group",
-      image: "/placeholder.svg",
-      quote: "The webinar opened my eyes to what's possible. We went from inconsistent posting to daily, high-quality content across all platforms. Our engagement rates increased 150% in just 2 months.",
+      name: "Sean Retzloff",
+      position: "VP",
+      company: "Kidder Mathews",
+      location: "Reno, Nevada",
+      image: "/kidder-matthews-logo.webp",
+      quote: "They were responsive to all my teams' requests and provided incredible customer service.",
+      project: "Email Marketing for Real Estate Company",
+      rating: 5.0,
+      service: "Email Marketing, Generative AI"
     },
   ];
+
+  const clutchUrl = "https://clutch.co/profile/enny-ai";
 
   return (
     <section id="testimonials" className="section-padding bg-white">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Content Automation <span className="gradient-text">Success Stories</span>
+            <span className="gradient-text">Enny AI Client Reviews</span>
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Real results from business owners, marketers, and creators who attended our free webinar 
-            and transformed their content creation process.
+            Real results from business owners and companies who worked with Enny AI to automate their processes and scale their operations.
           </p>
         </div>
 
@@ -50,22 +68,55 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
               <CardContent className="p-0">
-                <div className="p-6 pb-4">
-                  <div className="flex items-center mb-6">
-                    <div className="mr-4">
-                      <img 
-                        src={testimonial.image} 
-                        alt={testimonial.name}
-                        className="w-14 h-14 rounded-full object-cover" 
-                      />
+                {/* Company Logo Header */}
+                <div className="bg-gray-50 p-6 border-b border-gray-100">
+                  <div className="flex items-center justify-center h-16 mb-4">
+                    <img 
+                      src={testimonial.image} 
+                      alt={`${testimonial.company} logo`}
+                      className={`object-contain ${
+                        testimonial.company === 'Kidder Mathews' 
+                          ? 'max-h-25 max-w-48' 
+                          : testimonial.company === 'TruckeeHR'
+                            ? 'max-h-20 max-w-48'
+                            : 'max-h-12 max-w-32'
+                      }`}
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h4 className="font-semibold text-lg">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600">{testimonial.position}</p>
+                    <p className="text-xs text-gray-500">{testimonial.company} • {testimonial.location}</p>
+                  </div>
+                </div>
+                
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex-1">
+                      <p className="text-xs text-workshop-purple font-medium uppercase tracking-wide mb-1">
+                        {testimonial.service}
+                      </p>
+                      <p className="text-sm text-gray-600">{testimonial.project}</p>
                     </div>
-                    <div>
-                      <h4 className="font-semibold">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-500">{testimonial.position}</p>
-                      <p className="text-xs text-gray-400">{testimonial.company}</p>
+                    <div className="flex items-center gap-1 ml-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                      <span className="text-sm font-semibold ml-1">{testimonial.rating}</span>
                     </div>
                   </div>
-                  <p className="italic text-gray-700">{testimonial.quote}</p>
+                  
+                  <p className="italic text-gray-700 mb-4">"{testimonial.quote}"</p>
+                  
+                  <a 
+                    href={clutchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-workshop-purple hover:text-workshop-blue transition-colors text-sm font-medium"
+                  >
+                    View full review on Clutch
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
                 <div className="h-1 bg-gradient-to-r from-workshop-blue via-workshop-purple to-workshop-teal"></div>
               </CardContent>
@@ -75,56 +126,67 @@ const Testimonials = () => {
 
         {/* Results Stats */}
         <div className="mt-16 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8">
-          <h3 className="text-2xl font-semibold mb-8 text-center">Typical Results After the Webinar</h3>
+          <h3 className="text-2xl font-semibold mb-8 text-center">Verified Results from Clutch.co</h3>
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold gradient-text mb-2">80%</div>
-              <div className="text-sm text-gray-600">Time Savings</div>
+              <div className="text-3xl font-bold gradient-text mb-2">5.0★</div>
+              <div className="text-sm text-gray-600">Average Rating</div>
             </div>
             <div>
-              <div className="text-3xl font-bold gradient-text mb-2">5x</div>
-              <div className="text-sm text-gray-600">Content Output</div>
+              <div className="text-3xl font-bold gradient-text mb-2">100%</div>
+              <div className="text-sm text-gray-600">Would Refer</div>
             </div>
             <div>
-              <div className="text-3xl font-bold gradient-text mb-2">$3K+</div>
-              <div className="text-sm text-gray-600">Monthly Savings</div>
+              <div className="text-3xl font-bold gradient-text mb-2">$50K+</div>
+              <div className="text-sm text-gray-600">Total Project Value</div>
             </div>
             <div>
-              <div className="text-3xl font-bold gradient-text mb-2">150%</div>
-              <div className="text-sm text-gray-600">Engagement Increase</div>
+              <div className="text-3xl font-bold gradient-text mb-2">AI+</div>
+              <div className="text-sm text-gray-600">Automation Expertise</div>
             </div>
+          </div>
+          <div className="text-center mt-6">
+            <a 
+              href={clutchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-workshop-purple hover:text-workshop-blue transition-colors font-medium"
+            >
+              View all reviews on Clutch.co
+              <ExternalLink className="w-4 h-4" />
+            </a>
           </div>
         </div>
 
         <div className="mt-16 text-center">
-          <h3 className="text-2xl font-semibold mb-6">Trusted by Creators & Businesses</h3>
+          <h3 className="text-2xl font-semibold mb-6">Trusted by Businesses Worldwide</h3>
           <p className="text-gray-600 mb-8">
-            From solo creators to marketing teams, our content automation approach works for everyone
+            From HR consulting to real estate automation, our AI solutions deliver measurable results
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
               <div className="h-12 bg-gray-200 rounded-lg px-8 py-2 flex items-center justify-center">
-                <span className="text-gray-500 font-medium">Content Creators</span>
+                <span className="text-gray-500 font-medium">HR Consulting</span>
               </div>
             </div>
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
               <div className="h-12 bg-gray-200 rounded-lg px-8 py-2 flex items-center justify-center">
-                <span className="text-gray-500 font-medium">Marketing Teams</span>
+                <span className="text-gray-500 font-medium">Real Estate</span>
               </div>
             </div>
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
               <div className="h-12 bg-gray-200 rounded-lg px-8 py-2 flex items-center justify-center">
-                <span className="text-gray-500 font-medium">E-commerce</span>
+                <span className="text-gray-500 font-medium">Short-Term Rentals</span>
               </div>
             </div>
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
               <div className="h-12 bg-gray-200 rounded-lg px-8 py-2 flex items-center justify-center">
-                <span className="text-gray-500 font-medium">Freelancers</span>
+                <span className="text-gray-500 font-medium">Software Companies</span>
               </div>
             </div>
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
               <div className="h-12 bg-gray-200 rounded-lg px-8 py-2 flex items-center justify-center">
-                <span className="text-gray-500 font-medium">Agencies</span>
+                <span className="text-gray-500 font-medium">Employment Services</span>
               </div>
             </div>
           </div>

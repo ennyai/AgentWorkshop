@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 
 const WorkshopOverview = () => {
   return (
@@ -16,7 +16,7 @@ const WorkshopOverview = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-1 gap-12">
           <div>
             <div className="mb-8">
               <h3 className="text-2xl font-semibold mb-4">
@@ -65,46 +65,6 @@ const WorkshopOverview = () => {
               </Button>
             </div>
           </div>
-
-          <div className="relative">
-            <div className="aspect-video rounded-xl overflow-hidden shadow-xl bg-gradient-to-br from-workshop-purple/10 to-workshop-blue/10 flex items-center justify-center">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-4 cursor-pointer hover:scale-105 transition-transform">
-                  <Play className="w-8 h-8 text-workshop-purple ml-1" fill="currentColor" />
-                </div>
-                <p className="text-gray-700 font-medium">Preview: Content Automation Demo</p>
-                <p className="text-sm text-gray-500">See the process in action</p>
-              </div>
-            </div>
-            
-            <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-lg max-w-xs">
-              <div className="flex items-start gap-3">
-                <div className="text-workshop-purple">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-medium">Your Data Stays Safe</p>
-                  <p className="text-xs text-gray-500">You control your automations and data</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="absolute -top-6 -right-6 bg-white p-5 rounded-xl shadow-lg max-w-xs">
-              <div className="flex items-start gap-3">
-                <div className="text-workshop-teal">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-medium">Immediate Value</p>
-                  <p className="text-xs text-gray-500">Start automating content right away</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* What You'll Learn Section */}
@@ -132,12 +92,10 @@ const WorkshopOverview = () => {
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-workshop-purple/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <svg className="w-6 h-6 text-workshop-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
+                <ArrowDown className="w-6 h-6 text-workshop-purple" />
               </div>
-              <h4 className="font-semibold mb-2">Cost Reduction</h4>
-              <p className="text-sm text-gray-600">How to cut content costs by 80%</p>
+              <h4 className="font-semibold mb-2">Time Reduction</h4>
+              <p className="text-sm text-gray-600">How to cut content time by 80%</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-workshop-purple/10 rounded-xl flex items-center justify-center mx-auto mb-3">
