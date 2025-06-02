@@ -3,6 +3,10 @@ import { WebhookPayload, RegistrationData } from "@/types/registration";
 // Configuration for webhook endpoint
 const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL || "";
 
+// Current webinar ID | this can be changed to the webinar ID of the webinar you want to send the registration data to
+const CURRENT_WEBINAR_ID = "1047865790"
+
+
 /**
  * Sends registration data to the configured webhook endpoint
  * @param payload The webhook payload containing registration data
@@ -49,11 +53,16 @@ export const sendToWebhook = async (payload: WebhookPayload): Promise<boolean> =
 /**
  * Creates a standardized webhook payload from registration data
  * @param data The registration data
+ * @param webinarId The webinar ID (defaults to current webinar)
  * @returns WebhookPayload ready to send
  */
-export const createWebhookPayload = (data: RegistrationData): WebhookPayload => {
+export const createWebhookPayload = (
+  data: RegistrationData, 
+  webinarId: string = CURRENT_WEBINAR_ID
+): WebhookPayload => {
   return {
     formType: "webinar-registration",
+    webinarId,
     timestamp: new Date().toISOString(),
     data,
   };

@@ -38,6 +38,7 @@ export type ContentType = typeof CONTENT_TYPE_OPTIONS[number];
 // Webhook payload structure
 export interface WebhookPayload {
   formType: "webinar-registration";
+  webinarId: string;
   timestamp: string;
   data: RegistrationData;
 } 
