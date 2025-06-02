@@ -5,6 +5,7 @@
     "restartPolicyMaxRetries": 10
   },
   "variables": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "VITE_WEBHOOK_URL": "${{VITE_WEBHOOK_URL}}"
   }
 } 
