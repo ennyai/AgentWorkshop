@@ -8,7 +8,7 @@ import { Video, Calendar, Clock, Users, CheckCircle, X } from "lucide-react";
 import { RegistrationData } from "@/types/registration";
 import { createWebhookPayload, sendToWebhook } from "@/utils/webhook";
 
-const ZoomRegistration = () => {
+const RegistrationCard = () => {
   const [formData, setFormData] = useState<RegistrationData>({
     firstName: "",
     lastName: "",
@@ -123,7 +123,7 @@ const ZoomRegistration = () => {
         <div className="space-y-4 mb-6">
           <div className="flex items-center gap-3 text-gray-700">
             <Calendar className="w-5 h-5 text-workshop-purple" />
-            <span>[Date TBD]</span>
+            <span>July 10th, 2025</span>
           </div>
           <div className="flex items-center gap-3 text-gray-700">
             <Clock className="w-5 h-5 text-workshop-purple" />
@@ -311,4 +311,4 @@ const ZoomRegistration = () => {
   );
 };
 
-export default ZoomRegistration; 
+export default RegistrationCard; 

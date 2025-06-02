@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Video, Calendar, Users } from "lucide-react";
-import ZoomRegistration from "./ZoomRegistration";
+import RegistrationCard from "./RegistrationCard";
 
 const HeroSection = () => {
   const scrollToRegistration = () => {
@@ -12,7 +12,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20">
+    <section className="relative min-h-screen flex items-center pt-36 md:pt-20">
       {/* Background gradients and patterns */}
       <div className="absolute inset-0 bg-workshop-lightGray overflow-hidden">
         <div className="absolute top-0 right-0 w-3/4 h-3/4 bg-gradient-radial from-workshop-purple/10 to-transparent"></div>
@@ -83,7 +83,7 @@ const HeroSection = () => {
           <div className="order-1 md:order-2 relative">
             {/* Registration Form */}
             <div className="transform md:translate-x-4 md:translate-y-4">
-              <ZoomRegistration />
+              <RegistrationCard />
             </div>
             
             {/* Decorative elements */}

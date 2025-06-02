@@ -1,30 +1,9 @@
 import { WebhookPayload, RegistrationData } from "@/types/registration";
 
-// === RAILWAY DEBUG LOGGING (TEMPORARILY DISABLED) ===
-// Note: Will re-enable after fixing build issue
-/*
-(() => {
-  console.log('=== WEBHOOK DEBUG INFO ===');
-  console.log('All import.meta.env:', import.meta.env);
-  console.log('VITE_WEBHOOK_URL specifically:', import.meta.env.VITE_WEBHOOK_URL);
-  console.log('VITE_WEBHOOK_URL type:', typeof import.meta.env.VITE_WEBHOOK_URL);
-  console.log('VITE_WEBHOOK_URL length:', import.meta.env.VITE_WEBHOOK_URL?.length);
-  console.log('Is VITE_WEBHOOK_URL defined?', import.meta.env.VITE_WEBHOOK_URL !== undefined);
-  console.log('Is VITE_WEBHOOK_URL truthy?', !!import.meta.env.VITE_WEBHOOK_URL);
-  console.log('===========================');
-})();
-*/
 
 // Configuration for webhook endpoint
 const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL || "";
 
-// Debug logging inside the function where it's actually used
-/*
-(() => {
-  console.log('Final WEBHOOK_URL value:', WEBHOOK_URL);
-  console.log('WEBHOOK_URL is empty?', !WEBHOOK_URL);
-})();
-*/
 
 // Current webinar ID | this can be changed to the webinar ID of the webinar you want to send the registration data to
 const CURRENT_WEBINAR_ID = "1047865790"

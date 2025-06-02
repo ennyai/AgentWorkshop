@@ -9,7 +9,7 @@ import { Video, CheckCircle } from "lucide-react";
 import { RegistrationData } from "@/types/registration";
 import { createWebhookPayload, sendToWebhook } from "@/utils/webhook";
 
-const RegistrationForm = () => {
+const RegistrationSection = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
@@ -249,4 +249,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default RegistrationSection; 

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import RegistrationForm from "@/components/RegistrationForm";
+import RegistrationSection from "@/components/RegistrationSection";
 import WorkshopOverview from "@/components/WorkshopOverview";
 import BuildSection from "@/components/BuildSection";
 import Timeline from "@/components/Timeline";
@@ -14,7 +14,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <WorkshopOverview />
-      <RegistrationForm />
+      <RegistrationSection />
       <BuildSection />
       <Timeline />
       <Testimonials />
