@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "cache-bust": "force-rebuild-with-env-vars-2024",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

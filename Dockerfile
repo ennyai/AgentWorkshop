@@ -14,6 +14,14 @@ RUN npm cache clean --force && \
 # Copy source code
 COPY . .
 
+# Pass build-time environment variables (especially VITE_ prefixed ones)
+ARG VITE_WEBHOOK_URL
+ENV VITE_WEBHOOK_URL=$VITE_WEBHOOK_URL
+
+# Add cache bust for environment variable changes
+ARG CACHE_BUST=1
+RUN echo "Cache bust: $CACHE_BUST" && echo "VITE_WEBHOOK_URL available: $VITE_WEBHOOK_URL"
+
 # Build the application
 RUN npm run build
 
