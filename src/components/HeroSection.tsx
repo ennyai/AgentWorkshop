@@ -12,7 +12,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-36 md:pt-20">
+    <section className="relative min-h-screen flex items-center pt-36 md:pt-36">
       {/* Background gradients and patterns */}
       <div className="absolute inset-0 bg-workshop-lightGray overflow-hidden">
         <div className="absolute top-0 right-0 w-3/4 h-3/4 bg-gradient-radial from-workshop-purple/10 to-transparent"></div>
