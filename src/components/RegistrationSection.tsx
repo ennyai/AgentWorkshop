@@ -100,7 +100,7 @@ const RegistrationSection = () => {
   }
   
   return (
-    <section className="section-padding bg-gradient-to-r from-workshop-purple/5 to-workshop-blue/5 border-t border-gray-100">
+    <section id="registration" className="section-padding bg-gradient-to-r from-workshop-purple/5 to-workshop-blue/5 border-t border-gray-100">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto">
           <div className="mb-10 text-center">

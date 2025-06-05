@@ -23,7 +23,7 @@ const Navbar = () => {
   }, []);
 
   const scrollToRegistration = () => {
-    const registrationSection = document.querySelector('section:last-of-type');
+    const registrationSection = document.getElementById('registration');
     if (registrationSection) {
       registrationSection.scrollIntoView({ behavior: 'smooth' });
     }

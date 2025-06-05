@@ -60,8 +60,8 @@ const RegistrationCard = () => {
       title: "Content Automation Strategy Session",
       startDate: "20250710T180000Z", // July 10th, 2025 11:00 AM PT (6:00 PM UTC)
       endDate: "20250710T190000Z",   // July 10th, 2025 12:00 PM PT (7:00 PM UTC)
-      description: "Join us for a comprehensive Content Automation Strategy Session. You'll learn live automation demos, implementation roadmaps, and get access to expert Q&A.",
-      location: "Zoho Meeting (Link will be provided via email)"
+      description: "Join us for a comprehensive Content Automation Strategy Session. You'll learn live automation demos, implementation roadmaps, and get access to expert Q&A. Join the webinar at: https://live.zoho.com/yrnx-wlf-ozu",
+      location: "https://live.zoho.com/yrnx-wlf-ozu"
     };
 
     if (type === 'google') {
@@ -200,7 +200,7 @@ END:VCALENDAR`;
         <div className="space-y-4 mb-6">
           <div className="flex items-center gap-3 text-gray-700">
             <Calendar className="w-5 h-5 text-workshop-purple" />
-            <span>July 10th, 2025</span>
+            <span>July 10th, 2025 11am PT | 2pm ET</span>
           </div>
           <div className="flex items-center gap-3 text-gray-700">
             <Clock className="w-5 h-5 text-workshop-purple" />
