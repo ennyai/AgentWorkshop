@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Video, Calendar, Clock, Users, CheckCircle, X } from "lucide-react";
+import { Video, Calendar, Clock, Users, CheckCircle, X, CalendarPlus } from "lucide-react";
 import { RegistrationData } from "@/types/registration";
 import { createWebhookPayload, sendToWebhook } from "@/utils/webhook";
 
@@ -54,6 +54,49 @@ const RegistrationCard = () => {
     }
   };
 
+  // Calendar invite functions
+  const generateCalendarInvite = (type: 'google' | 'outlook' | 'ical') => {
+    const eventDetails = {
+      title: "Content Automation Strategy Session",
+      startDate: "20250710T180000Z", // July 10th, 2025 11:00 AM PT (6:00 PM UTC)
+      endDate: "20250710T190000Z",   // July 10th, 2025 12:00 PM PT (7:00 PM UTC)
+      description: "Join us for a comprehensive Content Automation Strategy Session. You'll learn live automation demos, implementation roadmaps, and get access to expert Q&A.",
+      location: "Zoho Meeting (Link will be provided via email)"
+    };
+
+    if (type === 'google') {
+      const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=${eventDetails.startDate}/${eventDetails.endDate}&details=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}`;
+      window.open(googleUrl, '_blank');
+    } else if (type === 'outlook') {
+      const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(eventDetails.title)}&startdt=${eventDetails.startDate}&enddt=${eventDetails.endDate}&body=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}`;
+      window.open(outlookUrl, '_blank');
+    } else if (type === 'ical') {
+      const icalContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Company//Your Product//EN
+BEGIN:VEVENT
+UID:content-automation-webinar-${Date.now()}@yourcompany.com
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+DTSTART:${eventDetails.startDate}
+DTEND:${eventDetails.endDate}
+SUMMARY:${eventDetails.title}
+DESCRIPTION:${eventDetails.description}
+LOCATION:${eventDetails.location}
+END:VEVENT
+END:VCALENDAR`;
+      
+      const blob = new Blob([icalContent], { type: 'text/calendar' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'content-automation-webinar.ics';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+  };
+
   const isFormValid = formData.firstName && formData.lastName && formData.email && formData.role;
 
   if (isSubmitted) {
@@ -65,23 +108,57 @@ const RegistrationCard = () => {
           </div>
           <h3 className="text-2xl font-semibold mb-3 text-gray-900">Registration Confirmed!</h3>
           <p className="text-gray-600 mb-4">
-            You'll receive a Zoom link and webinar materials via email within 30 minutes.
+            You'll receive the meeting link to join and a calendar invite in your inbox shortly.
           </p>
           <div className="bg-workshop-lightGray p-4 rounded-lg mb-4">
             <p className="text-sm text-gray-700">
               <strong>Webinar:</strong> Content Automation Strategy Session<br />
-              <strong>Date:</strong> [Date TBD]<br />
+              <strong>Date:</strong> July 10th 11am PT | 2pm ET<br />
               <strong>Duration:</strong> 1 Hour<br />
-              <strong>Format:</strong> Live Online (Zoom)
+              <strong>Format:</strong> Live Online (Zoho Meeting)
             </p>
           </div>
           <div className="mb-4 p-3 bg-workshop-purple/5 border border-workshop-purple/20 rounded-lg">
             <p className="text-sm text-workshop-purple font-medium">
-              📅 Calendar invite sent to your email<br />
-              🎥 Zoom link included in confirmation email<br />
-              📝 Pre-webinar materials will be shared 1 hour before
+              📅 Calendar invite with webinar link will be sent to your email<br />
+              📝 Pre-webinar materials will be shared 24 hours before
             </p>
           </div>
+          
+          {/* Calendar Invite Buttons */}
+          <div className="mb-6">
+            <p className="text-sm text-gray-600 mb-3">Add to your calendar:</p>
+            <div className="flex flex-wrap gap-2 justify-center">
+              <Button
+                onClick={() => generateCalendarInvite('google')}
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2 text-workshop-purple border-workshop-purple hover:bg-workshop-purple/5"
+              >
+                <CalendarPlus className="w-4 h-4" />
+                Google Calendar
+              </Button>
+              <Button
+                onClick={() => generateCalendarInvite('outlook')}
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2 text-workshop-purple border-workshop-purple hover:bg-workshop-purple/5"
+              >
+                <CalendarPlus className="w-4 h-4" />
+                Outlook
+              </Button>
+              <Button
+                onClick={() => generateCalendarInvite('ical')}
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2 text-workshop-purple border-workshop-purple hover:bg-workshop-purple/5"
+              >
+                <CalendarPlus className="w-4 h-4" />
+                iCal
+              </Button>
+            </div>
+          </div>
+
           <Button 
             onClick={() => {
               setIsSubmitted(false);
@@ -99,7 +176,7 @@ const RegistrationCard = () => {
             variant="outline" 
             className="text-workshop-purple border-workshop-purple hover:bg-workshop-purple/5"
           >
-            Register Another Person
+            Share Event With Another Person
           </Button>
         </div>
       </div>
